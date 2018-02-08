@@ -1,0 +1,38 @@
+const HORIZONTAL_ALIGNMENT_TYPE = Object.freeze({
+  CENTER: 'CENTER',
+  START: 'START',
+  END: 'END',
+  BETWEEN: 'BETWEEN',
+  AROUND: 'AROUND',
+});
+
+const FONT_AWESOME_SIZE = Object.freeze({
+  ONE: 'ONE',
+  TWO: 'TWO',
+  THREE: 'THREE',
+  FOUR: 'FOUR',
+  FIVE: 'FIVE',
+});
+
+const CONTACT_TYPE = Object.freeze({
+  ANGELLIST: 'ANGELLIST',
+  BITBUCKET: 'BITBUCKET',
+  CODEPEN: 'CODEPEN',
+  FACEBOOK: 'FACEBOOK',
+  GITHUB: 'GITHUB',
+  TWITTER: 'TWITTER',
+});
+
+const TARGET = Object.freeze({
+  BLANK: 'BLANK',
+  SELF: 'SELF',
+  PARENT: 'PARENT',
+  TOP: 'TOP',
+});
+
+export {
+  HORIZONTAL_ALIGNMENT_TYPE,
+  FONT_AWESOME_SIZE,
+  CONTACT_TYPE,
+  TARGET,
+};

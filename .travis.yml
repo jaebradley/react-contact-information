@@ -1,0 +1,31 @@
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email: true
+node_js:
+  - '8'
+before_install:
+  - npm install -g npm@5
+  - npm install -g greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
+after_script: greenkeeper-lockfile-upload
+script:
+  - npm run compile
+  - npm run lint
+  - npm run test
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
+  - npm run codecov
+  - npm run storybook
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  local_dir: .out
+  on:
+    branch: master
+branches:
+  except:
+  - /^v\d+\.\d+\.\d+$/
