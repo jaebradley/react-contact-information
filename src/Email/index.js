@@ -1,74 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import mailtoLink from 'mailto-link';
-import FontAwesome from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
-import { Tooltip } from 'reactstrap';
+import { faEnvelope } from '@fortawesome/fontawesome-free-solid';
 import emailPropType from 'email-prop-type';
 
-import {
-  faEnvelope,
-} from '@fortawesome/fontawesome-free-solid';
-
+import ContactIcon from '../ContactIcon';
 import { FONT_AWESOME_SIZE, TARGET } from '../constants';
 
-const targetValues = Object.freeze({
-  [TARGET.BLANK]: '__blank',
-  [TARGET.SELF]: '__self',
-  [TARGET.PARENT]: '__parent',
-  [TARGET.TOP]: '__top',
-});
-
-const sizeValues = Object.freeze({
-  [FONT_AWESOME_SIZE.ONE]: '1x',
-  [FONT_AWESOME_SIZE.TWO]: '2x',
-  [FONT_AWESOME_SIZE.THREE]: '3x',
-  [FONT_AWESOME_SIZE.FOUR]: '4x',
-  [FONT_AWESOME_SIZE.FIVE]: '5x',
-});
-
-class Email extends Component {
-  constructor(props) {
-    super(props);
-
-    this.toggleEmailAddress = this.toggleEmailAddress.bind(this);
-
-    this.state = { showEmailAddress: false };
+const Email = ({ to, cc, bcc, subject, body, target, size, id, delay }) => (
+  <ContactIcon {
+    ...{
+      id,
+      target,
+      size,
+      delay,
+      destination: mailtoLink({ to, cc, bcc, subject, body }),
+      icon: faEnvelope,
+      userIdentifier: to,
+    }
   }
-
-  toggleEmailAddress() {
-    this.setState({ showEmailAddress: !this.state.showEmailAddress });
-  }
-
-  render() {
-    const { showEmailAddress } = this.state;
-    const { to, cc, bcc, subject, body, target, size, id, delay } = this.props;
-
-    return (
-      <div>
-        <a
-          href={ mailtoLink({ to, cc, bcc, subject, body }) }
-          target={ targetValues[target] }
-        >
-          <FontAwesome
-            id={id}
-            icon={ faEnvelope }
-            size={ sizeValues[size] }
-          />
-        </a>
-        <Tooltip
-          className='email'
-          placement='bottom'
-          toggle={this.toggleEmailAddress}
-          isOpen={showEmailAddress}
-          target={id}
-          delay={delay}
-        >
-          { to }
-        </Tooltip>
-      </div>
-    );
-  }
-}
+  />
+);
 
 Email.defaultProps = {
   size: FONT_AWESOME_SIZE.ONE,
@@ -77,17 +29,21 @@ Email.defaultProps = {
     show: 250,
     hide: 0,
   },
+  cc: [],
+  bcc: [],
+  subject: '',
+  body: '',
 };
 
 Email.propTypes = {
   id: PropTypes.string.isRequired,
+  to: PropTypes.oneOfType([PropTypes.arrayOf(emailPropType), emailPropType]).isRequired,
   size: PropTypes.oneOf(Object.keys(FONT_AWESOME_SIZE)),
   target: PropTypes.oneOf(Object.keys(TARGET)),
   delay: PropTypes.shape({
     show: PropTypes.number,
     hide: PropTypes.number,
   }),
-  to: PropTypes.oneOfType([PropTypes.arrayOf(emailPropType), emailPropType]),
   cc: PropTypes.oneOfType([PropTypes.arrayOf(emailPropType), emailPropType]),
   bcc: PropTypes.oneOfType([PropTypes.arrayOf(emailPropType), emailPropType]),
   subject: PropTypes.string,
