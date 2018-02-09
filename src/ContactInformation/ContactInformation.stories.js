@@ -8,7 +8,7 @@ import { SERVICE_TYPE, FONT_AWESOME_SIZE } from '../constants';
 
 storiesOf('ContactInformation', module)
   .add('basic usage', () => (
-    <ContactInformation size={FONT_AWESOME_SIZE.TWO}>
+    <ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={3}>
       <Service username='jaebradley' type={SERVICE_TYPE.BITBUCKET} />
       <Service username='jaebradley' type={SERVICE_TYPE.CODEPEN} />
       <Service username='jaebradley' type={SERVICE_TYPE.GITHUB}/>

@@ -13,6 +13,18 @@ const justifyContentTypes = Object.freeze({
   [HORIZONTAL_ALIGNMENT_TYPE.START]: 'start',
 });
 
+const ContactInformationRow = ({ horizontalAlignmentType, contacts }) => (
+  <Row className={`justify-content-${justifyContentTypes[horizontalAlignmentType]}`} >
+    {
+      contacts.map((contact, index) => (
+        <Col key={ `${index}-contact-bar-column` } xs='auto'>
+          {contact}
+        </Col>
+      ))
+    }
+  </Row>
+);
+
 class ContactInformation extends Component {
   constructor(props) {
     super(props);
@@ -32,24 +44,29 @@ class ContactInformation extends Component {
     ));
   }
 
+  renderRows() {
+    const { horizontalAlignmentType, rowLength } = this.props;
+
+    const children = this.getChildren();
+
+    return children.map((child, index) => {
+      if (index % rowLength === 0) {
+        return (
+          <ContactInformationRow
+            key={ `contact-information-row-${index}` }
+            horizontalAlignmentType={ horizontalAlignmentType }
+            contacts={ children.slice(index, index + rowLength) }
+          />
+        )
+      }
+    })
+  }
+
   render() {
     return (
       <Container>
-        <Row className={ `justify-content-${justifyContentTypes[this.props.horizontalAlignmentType]}` }>
-          {
-            this.getChildren()
-              .map((child, index) => (
-                <Col
-                  key={ `${index}-contact-bar-column` }
-                  xs='auto'
-                >
-                  {child}
-                </Col>
-              )
-            )
-          }
-        </Row>
-    </Container>
+        { this.renderRows() }
+      </Container>
     );
   }
 }
@@ -57,12 +74,19 @@ class ContactInformation extends Component {
 ContactInformation.defaultProps = {
   horizontalAlignmentType: HORIZONTAL_ALIGNMENT_TYPE.CENTER,
   size: FONT_AWESOME_SIZE.ONE,
+  rowLength: 5,
 };
+
+ContactInformationRow.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.node).isRequired,
+  horizontalAlignmentType: PropTypes.oneOf(Object.keys(HORIZONTAL_ALIGNMENT_TYPE)),
+}
 
 ContactInformation.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]).isRequired,
   horizontalAlignmentType: PropTypes.oneOf(Object.keys(HORIZONTAL_ALIGNMENT_TYPE)),
   size: PropTypes.oneOf(Object.keys(FONT_AWESOME_SIZE)),
+  rowLength: PropTypes.number,
 };
 
 export default ContactInformation;
