@@ -13,7 +13,7 @@ const justifyContentTypes = Object.freeze({
   [HORIZONTAL_ALIGNMENT_TYPE.START]: 'start',
 });
 
-class ContactBar extends Component {
+class ContactInformation extends Component {
   constructor(props) {
     super(props);
   }
@@ -53,15 +53,15 @@ class ContactBar extends Component {
   }
 }
 
-ContactBar.defaultProps = {
+ContactInformation.defaultProps = {
   horizontalAlignmentType: HORIZONTAL_ALIGNMENT_TYPE.CENTER,
   size: FONT_AWESOME_SIZE.ONE,
 };
 
-ContactBar.propTypes = {
+ContactInformation.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]).isRequired,
   horizontalAlignmentType: PropTypes.oneOf(Object.keys(HORIZONTAL_ALIGNMENT_TYPE)),
   size: PropTypes.oneOf(Object.keys(FONT_AWESOME_SIZE)),
 };
 
-export default ContactBar;
+export default ContactInformation;
