@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FontAwesome from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
+import { Tooltip } from 'reactstrap';
 
 import {
   faAngellist,
@@ -50,28 +51,69 @@ const getDestination = (username, serviceType) => (
   `${serviceDestinationPrefixes[serviceType]}/${username}`
 );
 
-const Service = ({ username, type, size, target }) => (
-  <a
-    href={ getDestination(username, type) }
-    target={ targetValues[target] }
-  >
-    <FontAwesome
-      icon={ iconValues[type] }
-      size={ sizeValues[size] }
-    />
-  </a>
-)
+class Service extends Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleUsername = this.toggleUsername.bind(this);
+
+    this.state = { showUsername: false, timeoutId: null };
+  }
+
+  toggleUsername() {
+    this.setState({ showUsername: !this.state.showUsername });
+  }
+
+  render() {
+    const { showUsername } = this.state;
+    const { id, username, type, size, target, delay } = this.props;
+
+    return (
+      <div className='service-icon-link'>
+        <a
+          href={ getDestination(username, type) }
+          target={ targetValues[target] }
+        >
+          <FontAwesome
+            id={id}
+            icon={ iconValues[type] }
+            size={ sizeValues[size] }
+          />
+        </a>
+        <Tooltip
+          className='username'
+          placement='bottom'
+          toggle={this.toggleUsername}
+          isOpen={showUsername}
+          target={id}
+          delay={delay}
+        >
+          @{ username }
+        </Tooltip>
+      </div>
+    );
+  }
+}
 
 Service.defaultProps = {
   size: FONT_AWESOME_SIZE.ONE,
   target: TARGET.BLANK,
+  delay: {
+    show: 250,
+    hide: 0,
+  },
 };
 
 Service.propTypes = {
+  id: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   type: PropTypes.oneOf(Object.keys(SERVICE_TYPE)).isRequired,
   size: PropTypes.oneOf(Object.keys(FONT_AWESOME_SIZE)),
   target: PropTypes.oneOf(Object.keys(TARGET)),
+  delay: PropTypes.shape({
+    show: PropTypes.number,
+    hide: PropTypes.number,
+  }),
 };
 
 export default Service;

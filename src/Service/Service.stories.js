@@ -5,5 +5,5 @@ import { SERVICE_TYPE } from '../constants';
 
 storiesOf('Service', module)
   .add('basic usage', () => (
-    <Service username='jaebradley' type={SERVICE_TYPE.GITHUB} />
+    <Service id='github' username='jaebradley' type={SERVICE_TYPE.GITHUB} />
   ));

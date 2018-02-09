@@ -25,6 +25,7 @@ class ContactInformation extends Component {
       React.cloneElement(child, {
         size,
         key: `${index}-contact-icon`,
+        id: `${child.props.type}-${child.props.username}-${index}`,
         location: child.props.location,
         type: child.props.type,
       })
