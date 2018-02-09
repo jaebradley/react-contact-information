@@ -14,7 +14,7 @@ const FONT_AWESOME_SIZE = Object.freeze({
   FIVE: 'FIVE',
 });
 
-const CONTACT_TYPE = Object.freeze({
+const SERVICE_TYPE = Object.freeze({
   ANGELLIST: 'ANGELLIST',
   BITBUCKET: 'BITBUCKET',
   CODEPEN: 'CODEPEN',
@@ -33,6 +33,6 @@ const TARGET = Object.freeze({
 export {
   HORIZONTAL_ALIGNMENT_TYPE,
   FONT_AWESOME_SIZE,
-  CONTACT_TYPE,
+  SERVICE_TYPE,
   TARGET,
 };
