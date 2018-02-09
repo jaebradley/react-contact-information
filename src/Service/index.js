@@ -10,7 +10,7 @@ import {
   faTwitter,
 } from '@fortawesome/fontawesome-free-brands';
 
-import { FONT_AWESOME_SIZE, SERVICE_TYPE, TARGET } from '../constants';
+import { FONT_AWESOME_SIZE, SERVICE_TYPE, TARGET, TOOLTIP_PLACEMENT } from '../constants';
 import ContactIcon from '../ContactIcon';
 
 const iconValues = Object.freeze({
@@ -35,13 +35,14 @@ const getDestination = (username, serviceType) => (
   `${serviceDestinationPrefixes[serviceType]}/${username}`
 );
 
-const Service = ({ id, username, type, size, target, delay }) => (
+const Service = ({ id, username, type, size, target, delay, tooltipPlacement }) => (
   <ContactIcon {
     ...{
       id,
       size,
       target,
       delay,
+      tooltipPlacement,
       destination: getDestination(username, type),
       icon: iconValues[type],
       userIdentifier: `@${username}`,
@@ -56,6 +57,7 @@ Service.defaultProps = {
     show: 250,
     hide: 0,
   },
+  tooltipPlacement: TOOLTIP_PLACEMENT.TOP,
 };
 
 Service.propTypes = {
@@ -68,6 +70,7 @@ Service.propTypes = {
     show: PropTypes.number,
     hide: PropTypes.number,
   }),
+  tooltipPlacement: PropTypes.oneOf(Object.keys(TOOLTIP_PLACEMENT)),
 };
 
 export default Service;

@@ -5,15 +5,16 @@ import { faEnvelope } from '@fortawesome/fontawesome-free-solid';
 import emailPropType from 'email-prop-type';
 
 import ContactIcon from '../ContactIcon';
-import { FONT_AWESOME_SIZE, TARGET } from '../constants';
+import { FONT_AWESOME_SIZE, TARGET, TOOLTIP_PLACEMENT } from '../constants';
 
-const Email = ({ to, cc, bcc, subject, body, target, size, id, delay }) => (
+const Email = ({ to, cc, bcc, subject, body, target, size, id, delay, tooltipPlacement }) => (
   <ContactIcon {
     ...{
       id,
       target,
       size,
       delay,
+      tooltipPlacement,
       destination: mailtoLink({ to, cc, bcc, subject, body }),
       icon: faEnvelope,
       userIdentifier: to,
@@ -33,6 +34,7 @@ Email.defaultProps = {
   bcc: [],
   subject: '',
   body: '',
+  tooltipPlacement: TOOLTIP_PLACEMENT.TOP,
 };
 
 Email.propTypes = {
@@ -48,6 +50,7 @@ Email.propTypes = {
   bcc: PropTypes.oneOfType([PropTypes.arrayOf(emailPropType), emailPropType]),
   subject: PropTypes.string,
   body: PropTypes.string,
+  tooltipPlacement: PropTypes.oneOf(Object.keys(TOOLTIP_PLACEMENT)),
 };
 
 export default Email;
