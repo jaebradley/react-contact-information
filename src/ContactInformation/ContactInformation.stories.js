@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import ContactInformation from './index';
 import Service from '../Service';
+import Email from '../Email';
 import { SERVICE_TYPE, FONT_AWESOME_SIZE } from '../constants';
 
 storiesOf('ContactInformation', module)
@@ -13,5 +14,6 @@ storiesOf('ContactInformation', module)
       <Service username='jaebradley' type={SERVICE_TYPE.GITHUB}/>
       <Service username='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
       <Service username='jaebradley' type={SERVICE_TYPE.TWITTER} />
+      <Email to='jae.b.bradley@gmail.com' />
     </ContactInformation>
   ));

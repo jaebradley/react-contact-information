@@ -69,7 +69,7 @@ class Service extends Component {
     const { id, username, type, size, target, delay } = this.props;
 
     return (
-      <div className='service-icon-link'>
+      <div>
         <a
           href={ getDestination(username, type) }
           target={ targetValues[target] }
