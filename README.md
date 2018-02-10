@@ -4,7 +4,7 @@
 
 Simple `React` component for all the ways to contact and connect across a variety of services in a world driven by the Internet of Things.
 
-Icons driven by [`fontawesome`](fontawesome.io/icons/).
+Icons driven by [`FontAwesome`](fontawesome.io/icons/); styles driven by `[Bootstrap](https://v4-alpha.getbootstrap.com) / [reactstrap](reactstrap.github.io)`.
 
 ## Example
 
