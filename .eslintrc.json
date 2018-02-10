@@ -12,7 +12,7 @@
   },
   "parserOptions": {
     "ecmaFeatures": {
-        "jsx": true,
+        "js": true,
         "modules": true
     }
   },

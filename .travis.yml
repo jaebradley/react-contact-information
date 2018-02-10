@@ -18,14 +18,7 @@ script:
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
   - npm run codecov
-  - npm run storybook
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GH_TOKEN
-  local_dir: .out
-  on:
-    branch: master
+  - npm run deploy-storybook-ci
 branches:
   except:
   - /^v\d+\.\d+\.\d+$/
