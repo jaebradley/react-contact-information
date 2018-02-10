@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Simple `React` component for all the ways to contact and connect across a variety of services in a world driven by the Internet of Things.
+Simple `React` component that combines all the ways to get connected across a variety of services.
 
 Icons driven by [`FontAwesome`](fontawesome.io/icons/); styles driven by `[Bootstrap](https://v4-alpha.getbootstrap.com) / [reactstrap](reactstrap.github.io)`.
 
@@ -28,7 +28,7 @@ import { ContactInformation, Service, Email, SERVICE_TYPE, FONT_AWESOME_SIZE } f
 - [`ContactInformation`](/src/ContactInformation)
 - [`Email`](/src/Email)
 - [`Service`](/src/Service)
-- [`Constants`](/src/ConstantsREADME.md)
+- [`Constants`](/src/constants.README.md)
   - `HORIZONTAL_ALIGNMENT_TYPE`
   - `FONT_AWESOME_SIZE`
   - `SERVICE_TYPE`
