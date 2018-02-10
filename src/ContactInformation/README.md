@@ -20,13 +20,17 @@ Specifies the number of icons per row. Defaults to `5`.
 
 ## Example
 
+![alt-text](https://i.imgur.com/SPi02YV.png)
+
 ```javascript
-<ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={6}>
-  <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
-  <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
-  <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
-  <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.TWITTER} />
-  <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
+import { ContactInformation, Service, Email, SERVICE_TYPE, FONT_AWESOME_SIZE } from 'react-contact-information';
+
+<ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={6} >
+  <Service showIdentifier accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB} />
+  <Service showIdentifier accountIdentifier='arsenal' type={SERVICE_TYPE.INSTAGRAM} />
+  <Service showIdentifier accountIdentifier='ohjoy' type={SERVICE_TYPE.PINTEREST} />
+  <Service showIdentifier accountIdentifier='spez' type={SERVICE_TYPE.REDDIT} />
+  <Service showIdentifier accountIdentifier='@djkhaled305' type={SERVICE_TYPE.SNAPCHAT} />
   <Email to='jae.b.bradley@gmail.com' />
 </ContactInformation>
 ```

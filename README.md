@@ -8,10 +8,12 @@ Icons driven by [`FontAwesome`](fontawesome.io/icons/); styles driven by `[Boots
 
 ## Example
 
+![alt-text](https://i.imgur.com/SPi02YV.png)
+
 ```javascript
 import { ContactInformation, Service, Email, SERVICE_TYPE, FONT_AWESOME_SIZE } from 'react-contact-information';
 
-<ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={12} >
+<ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={6} >
   <Service showIdentifier accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB} />
   <Service showIdentifier accountIdentifier='arsenal' type={SERVICE_TYPE.INSTAGRAM} />
   <Service showIdentifier accountIdentifier='ohjoy' type={SERVICE_TYPE.PINTEREST} />
