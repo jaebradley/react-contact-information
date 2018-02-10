@@ -18,7 +18,7 @@ script:
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
   - npm run codecov
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; npm run deploy-storybook-ci; fi
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run deploy-storybook-ci; fi
 branches:
   except:
   - /^v\d+\.\d+\.\d+$/
