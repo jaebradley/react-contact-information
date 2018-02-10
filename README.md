@@ -4,7 +4,7 @@
 
 Simple `React` component that combines all the ways to get connected across a variety of services.
 
-Icons driven by [`FontAwesome`](fontawesome.io/icons/); styles driven by `[Bootstrap](https://v4-alpha.getbootstrap.com) / [reactstrap](reactstrap.github.io)`.
+Icons driven by [`FontAwesome`](fontawesome.io/icons/); styles driven by [`Bootstrap`](https://v4-alpha.getbootstrap.com) / [`reactstrap`](reactstrap.github.io).
 
 ## Example
 
