@@ -7,7 +7,7 @@ import emailPropType from 'email-prop-type';
 import ContactIcon from '../ContactIcon';
 import { FONT_AWESOME_SIZE, TARGET, TOOLTIP_PLACEMENT } from '../constants';
 
-const Email = ({ to, cc, bcc, subject, body, target, size, id, delay, tooltipPlacement }) => (
+const Email = ({ to, cc, bcc, subject, body, target, size, id, delay, tooltipPlacement, showIdentifier }) => (
   <ContactIcon {
     ...{
       id,
@@ -17,7 +17,8 @@ const Email = ({ to, cc, bcc, subject, body, target, size, id, delay, tooltipPla
       tooltipPlacement,
       destination: mailtoLink({ to, cc, bcc, subject, body }),
       icon: faEnvelope,
-      userIdentifier: to,
+      identifier: to,
+      showIdentifier,
     }
   }
   />
@@ -35,6 +36,7 @@ Email.defaultProps = {
   subject: '',
   body: '',
   tooltipPlacement: TOOLTIP_PLACEMENT.TOP,
+  showIdentifier: true,
 };
 
 Email.propTypes = {
@@ -51,6 +53,7 @@ Email.propTypes = {
   subject: PropTypes.string,
   body: PropTypes.string,
   tooltipPlacement: PropTypes.oneOf(Object.keys(TOOLTIP_PLACEMENT)),
+  showIdentifier: PropTypes.bool,
 };
 
 export default Email;

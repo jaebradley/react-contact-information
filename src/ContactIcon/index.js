@@ -53,7 +53,17 @@ class ContactIcon extends Component {
 
   render() {
     const { show } = this.state;
-    const { destination, target, icon, size, id, delay, userIdentifier, tooltipPlacement } = this.props;
+    const {
+      destination,
+      target,
+      icon,
+      size,
+      id,
+      delay,
+      identifier,
+      tooltipPlacement,
+      showIdentifier
+    } = this.props;
 
     return (
       <div>
@@ -67,15 +77,17 @@ class ContactIcon extends Component {
             size={ sizeValues[size] }
           />
         </a>
-        <Tooltip
-          placement={tooltipPlacementValues[tooltipPlacement]}
-          toggle={this.toggle}
-          isOpen={show}
-          target={id}
-          delay={delay}
-        >
-          { userIdentifier }
-        </Tooltip>
+        { showIdentifier &&
+          <Tooltip
+            placement={tooltipPlacementValues[tooltipPlacement]}
+            toggle={this.toggle}
+            isOpen={show}
+            target={id}
+            delay={delay}
+          >
+            { identifier }
+          </Tooltip>
+        }
       </div>
     )
   }
@@ -89,13 +101,14 @@ ContactIcon.defaultProps = {
     hide: 0,
   },
   tooltipPlacement: TOOLTIP_PLACEMENT.TOP,
+  showIdentifier: false,
 };
 
 ContactIcon.propTypes = {
   id: PropTypes.string.isRequired,
   destination: PropTypes.string.isRequired,
   icon: PropTypes.object.isRequired,
-  userIdentifier: PropTypes.string.isRequired,
+  identifier: PropTypes.string.isRequired,
   size: PropTypes.oneOf(Object.keys(FONT_AWESOME_SIZE)),
   target: PropTypes.oneOf(Object.keys(TARGET)),
   delay: PropTypes.shape({
@@ -103,6 +116,7 @@ ContactIcon.propTypes = {
     hide: PropTypes.number,
   }),
   tooltipPlacement: PropTypes.oneOf(Object.keys(TOOLTIP_PLACEMENT)),
+  showIdentifier: PropTypes.bool,
 };
 
 export default ContactIcon;
