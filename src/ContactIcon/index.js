@@ -62,28 +62,31 @@ class ContactIcon extends Component {
       delay,
       identifier,
       tooltipPlacement,
-      showIdentifier
+      showIdentifier,
+      className,
     } = this.props;
 
     return (
-      <div>
+      <div className={ className }>
         <a
+          className={ 'contact-link' }
           href={ destination }
           target={ targetValues[target] }
         >
           <FontAwesome
-            id={id}
+            id={ id }
+            className={ 'contact-icon' }
             icon={ icon }
             size={ sizeValues[size] }
           />
         </a>
         { showIdentifier &&
           <Tooltip
-            placement={tooltipPlacementValues[tooltipPlacement]}
-            toggle={this.toggle}
-            isOpen={show}
-            target={id}
-            delay={delay}
+            placement={ tooltipPlacementValues[tooltipPlacement] }
+            toggle={ this.toggle }
+            isOpen={ show }
+            target={ id }
+            delay={ delay }
           >
             { identifier }
           </Tooltip>
@@ -102,6 +105,7 @@ ContactIcon.defaultProps = {
   },
   tooltipPlacement: TOOLTIP_PLACEMENT.TOP,
   showIdentifier: false,
+  className: 'contact-information',
 };
 
 ContactIcon.propTypes = {
@@ -117,6 +121,7 @@ ContactIcon.propTypes = {
   }),
   tooltipPlacement: PropTypes.oneOf(Object.keys(TOOLTIP_PLACEMENT)),
   showIdentifier: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default ContactIcon;
