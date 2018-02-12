@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FontAwesome from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import { Tooltip } from 'reactstrap';
+import classNames from 'classnames';
 
 import { FONT_AWESOME_SIZE, TARGET, TOOLTIP_PLACEMENT } from '../constants';
 
@@ -67,7 +68,7 @@ class ContactIcon extends Component {
     } = this.props;
 
     return (
-      <div className={ className }>
+      <div className={ classNames(className, 'contact-information') }>
         <a
           className={ 'contact-link' }
           href={ destination }
@@ -105,7 +106,7 @@ ContactIcon.defaultProps = {
   },
   tooltipPlacement: TOOLTIP_PLACEMENT.TOP,
   showIdentifier: false,
-  className: 'contact-information',
+  className: '',
 };
 
 ContactIcon.propTypes = {
