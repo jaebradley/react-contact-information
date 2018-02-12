@@ -18,6 +18,14 @@ const sizeValues = Object.freeze({
   [FONT_AWESOME_SIZE.THREE]: '3x',
   [FONT_AWESOME_SIZE.FOUR]: '4x',
   [FONT_AWESOME_SIZE.FIVE]: '5x',
+  [FONT_AWESOME_SIZE.SIX]: '6x',
+  [FONT_AWESOME_SIZE.SEVEN]: '7x',
+  [FONT_AWESOME_SIZE.EIGHT]: '8x',
+  [FONT_AWESOME_SIZE.NINE]: '9x',
+  [FONT_AWESOME_SIZE.TEN]: '10x',
+  [FONT_AWESOME_SIZE.EXTRA_SMALL]: 'xs',
+  [FONT_AWESOME_SIZE.SMALL]: 'sm',
+  [FONT_AWESOME_SIZE.LARGE]: 'lg',
 });
 
 const tooltipPlacementValues = Object.freeze({
