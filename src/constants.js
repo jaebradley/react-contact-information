@@ -12,6 +12,14 @@ const FONT_AWESOME_SIZE = Object.freeze({
   THREE: 'THREE',
   FOUR: 'FOUR',
   FIVE: 'FIVE',
+  SIX: 'SIX',
+  SEVEN: 'SEVEN',
+  EIGHT: 'EIGHT',
+  NINE: 'NINE',
+  TEN: 'TEN',
+  EXTRA_SMALL: 'EXTRA_SMALL',
+  SMALL: 'SMALL',
+  LARGE: 'LARGE',
 });
 
 const SERVICE_TYPE = Object.freeze({
