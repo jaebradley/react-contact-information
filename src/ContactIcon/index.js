@@ -65,10 +65,14 @@ class ContactIcon extends Component {
       tooltipPlacement,
       showIdentifier,
       className,
+      ...other
     } = this.props;
 
     return (
-      <div className={ classNames(className, 'contact-information') }>
+      <div
+        { ...other }
+        className={ classNames(className, 'contact-information') }
+      >
         <a
           className={ 'contact-link' }
           href={ destination }
@@ -83,6 +87,7 @@ class ContactIcon extends Component {
         </a>
         { showIdentifier &&
           <Tooltip
+            className={ 'contact-link-tooltip' }
             placement={ tooltipPlacementValues[tooltipPlacement] }
             toggle={ this.toggle }
             isOpen={ show }

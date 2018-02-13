@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import {
   faAngellist,
@@ -87,20 +88,24 @@ const getDestination = (accountIdentifier, serviceType) => {
   }
 }
 
-const Service = ({ id, accountIdentifier, type, size, target, delay, tooltipPlacement, showIdentifier }) => (
-  <ContactIcon {
-    ...{
-      id,
-      size,
-      target,
-      delay,
-      tooltipPlacement,
-      showIdentifier,
-      identifier: accountIdentifier,
-      destination: getDestination(accountIdentifier, type),
-      icon: iconValues[type],
+const Service = ({ id, accountIdentifier, type, size, target, delay, tooltipPlacement, showIdentifier, className, ...other }) => (
+  <ContactIcon
+    { ...other }
+    {
+      ...{
+        id,
+        size,
+        target,
+        delay,
+        tooltipPlacement,
+        showIdentifier,
+        className: classNames(className, 'contact-service'),
+        identifier: accountIdentifier,
+        destination: getDestination(accountIdentifier, type),
+        icon: iconValues[type],
+      }
     }
-  }/>
+  />
 )
 
 Service.defaultProps = {
@@ -112,6 +117,7 @@ Service.defaultProps = {
   },
   tooltipPlacement: TOOLTIP_PLACEMENT.TOP,
   showIdentifier: false,
+  className: '',
 };
 
 Service.propTypes = {
@@ -126,6 +132,7 @@ Service.propTypes = {
   }),
   tooltipPlacement: PropTypes.oneOf(Object.keys(TOOLTIP_PLACEMENT)),
   showIdentifier: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Service;

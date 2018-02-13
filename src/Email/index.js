@@ -8,21 +8,23 @@ import classNames from 'classnames';
 import ContactIcon from '../ContactIcon';
 import { FONT_AWESOME_SIZE, TARGET, TOOLTIP_PLACEMENT } from '../constants';
 
-const Email = ({ to, cc, bcc, subject, body, target, size, id, delay, tooltipPlacement, showIdentifier, className }) => (
-  <ContactIcon {
-    ...{
-      id,
-      target,
-      size,
-      delay,
-      tooltipPlacement,
-      className: classNames(className, 'contact-email'),
-      destination: mailtoLink({ to, cc, bcc, subject, body }),
-      icon: faEnvelope,
-      identifier: to,
-      showIdentifier,
+const Email = ({ to, cc, bcc, subject, body, target, size, id, delay, tooltipPlacement, showIdentifier, className, ...other }) => (
+  <ContactIcon
+    { ...other }
+    {
+      ...{
+        id,
+        target,
+        size,
+        delay,
+        tooltipPlacement,
+        className: classNames(className, 'contact-email'),
+        destination: mailtoLink({ to, cc, bcc, subject, body }),
+        icon: faEnvelope,
+        identifier: to,
+        showIdentifier,
+      }
     }
-  }
   />
 );
 

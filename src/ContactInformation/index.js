@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { HORIZONTAL_ALIGNMENT_TYPE, FONT_AWESOME_SIZE } from '../constants';
@@ -63,30 +64,40 @@ class ContactInformation extends Component {
   }
 
   render() {
+    const { children, horizontalAlignmentType, size, rowLength, className, ...other } = this.props;
     return (
-      <Container>
+      <Container
+        { ...other }
+        className={ classNames(className, 'contact-information') }
+      >
         { this.renderRows() }
       </Container>
     );
   }
 }
 
+ContactInformationRow.defaultProps = {
+  horizontalAlignmentType: HORIZONTAL_ALIGNMENT_TYPE.CENTER,
+};
+
 ContactInformation.defaultProps = {
   horizontalAlignmentType: HORIZONTAL_ALIGNMENT_TYPE.CENTER,
   size: FONT_AWESOME_SIZE.ONE,
   rowLength: 5,
+  className: '',
 };
 
 ContactInformationRow.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.node).isRequired,
   horizontalAlignmentType: PropTypes.oneOf(Object.keys(HORIZONTAL_ALIGNMENT_TYPE)),
-}
+};
 
 ContactInformation.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]).isRequired,
   horizontalAlignmentType: PropTypes.oneOf(Object.keys(HORIZONTAL_ALIGNMENT_TYPE)),
   size: PropTypes.oneOf(Object.keys(FONT_AWESOME_SIZE)),
   rowLength: PropTypes.number,
+  className: PropTypes.string,
 };
 
 export default ContactInformation;
