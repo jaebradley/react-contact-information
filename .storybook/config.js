@@ -3,7 +3,7 @@ import { setOptions } from '@storybook/addon-options';
 import { setDefaults } from '@storybook/addon-info';
 
 setDefaults({
-  inline: false,
+  inline: true,
   header: true,
   source: true,
 });

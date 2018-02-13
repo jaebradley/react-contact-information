@@ -3,24 +3,28 @@ import mailtoLink from 'mailto-link';
 import PropTypes from 'prop-types';
 import { faEnvelope } from '@fortawesome/fontawesome-free-solid';
 import emailPropType from 'email-prop-type';
+import classNames from 'classnames';
 
 import ContactIcon from '../ContactIcon';
 import { FONT_AWESOME_SIZE, TARGET, TOOLTIP_PLACEMENT } from '../constants';
 
-const Email = ({ to, cc, bcc, subject, body, target, size, id, delay, tooltipPlacement, showIdentifier }) => (
-  <ContactIcon {
-    ...{
-      id,
-      target,
-      size,
-      delay,
-      tooltipPlacement,
-      destination: mailtoLink({ to, cc, bcc, subject, body }),
-      icon: faEnvelope,
-      identifier: to,
-      showIdentifier,
+const Email = ({ to, cc, bcc, subject, body, target, size, id, delay, tooltipPlacement, showIdentifier, className, ...other }) => (
+  <ContactIcon
+    { ...other }
+    {
+      ...{
+        id,
+        target,
+        size,
+        delay,
+        tooltipPlacement,
+        className: classNames(className, 'contact-email'),
+        destination: mailtoLink({ to, cc, bcc, subject, body }),
+        icon: faEnvelope,
+        identifier: to,
+        showIdentifier,
+      }
     }
-  }
   />
 );
 
@@ -37,6 +41,7 @@ Email.defaultProps = {
   body: '',
   tooltipPlacement: TOOLTIP_PLACEMENT.TOP,
   showIdentifier: true,
+  className: '',
 };
 
 Email.propTypes = {
@@ -54,6 +59,7 @@ Email.propTypes = {
   body: PropTypes.string,
   tooltipPlacement: PropTypes.oneOf(Object.keys(TOOLTIP_PLACEMENT)),
   showIdentifier: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default Email;

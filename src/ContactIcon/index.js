@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FontAwesome from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import { Tooltip } from 'reactstrap';
+import classNames from 'classnames';
 
 import { FONT_AWESOME_SIZE, TARGET, TOOLTIP_PLACEMENT } from '../constants';
 
@@ -70,28 +71,36 @@ class ContactIcon extends Component {
       delay,
       identifier,
       tooltipPlacement,
-      showIdentifier
+      showIdentifier,
+      className,
+      ...other
     } = this.props;
 
     return (
-      <div>
+      <div
+        { ...other }
+        className={ classNames(className, 'contact-information') }
+      >
         <a
+          className={ 'contact-link' }
           href={ destination }
           target={ targetValues[target] }
         >
           <FontAwesome
-            id={id}
+            id={ id }
+            className={ 'contact-icon' }
             icon={ icon }
             size={ sizeValues[size] }
           />
         </a>
         { showIdentifier &&
           <Tooltip
-            placement={tooltipPlacementValues[tooltipPlacement]}
-            toggle={this.toggle}
-            isOpen={show}
-            target={id}
-            delay={delay}
+            className={ 'contact-link-tooltip' }
+            placement={ tooltipPlacementValues[tooltipPlacement] }
+            toggle={ this.toggle }
+            isOpen={ show }
+            target={ id }
+            delay={ delay }
           >
             { identifier }
           </Tooltip>
@@ -110,6 +119,7 @@ ContactIcon.defaultProps = {
   },
   tooltipPlacement: TOOLTIP_PLACEMENT.TOP,
   showIdentifier: false,
+  className: '',
 };
 
 ContactIcon.propTypes = {
@@ -125,6 +135,7 @@ ContactIcon.propTypes = {
   }),
   tooltipPlacement: PropTypes.oneOf(Object.keys(TOOLTIP_PLACEMENT)),
   showIdentifier: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 export default ContactIcon;
