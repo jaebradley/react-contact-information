@@ -1,20 +1,17 @@
 import React from 'react';
-import {storiesOf} from '@storybook/react';
+import { storiesOf, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 import ContactInformation from './index';
 import Service from '../Service';
 import Email from '../Email';
-import {SERVICE_TYPE, FONT_AWESOME_SIZE} from '../constants';
+import { SERVICE_TYPE, FONT_AWESOME_SIZE } from '../constants';
 import README from './README.md';
 
-const wrapComponent = (component) => (
-  withInfo({ styles: bootstrap }, README)(() => component)
-);
-
 storiesOf('ContactInformation', module)
-  .add('basic usage, single row', wrapComponent(
+  .addDecorator((story, context) => withInfo({ styles: bootstrap }, README)(story)(context))
+  .add('basic usage, single row', () => (
     <ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={6}>
       <Service id='angellist' accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
       <Service id='github' accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
@@ -24,7 +21,7 @@ storiesOf('ContactInformation', module)
       <Email id='email' to='jae.b.bradley@gmail.com' />
     </ContactInformation>
   ))
-  .add('multiple rows', wrapComponent (
+  .add('multiple rows', () => (
     <ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={3}>
       <Service id='angellist' accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
       <Service id='github' accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
@@ -34,7 +31,7 @@ storiesOf('ContactInformation', module)
       <Email id='email' to='jae.b.bradley@gmail.com' />
     </ContactInformation>
   ))
-  .add('font awesome size one', wrapComponent(
+  .add('font awesome size one', () => (
       <ContactInformation size={FONT_AWESOME_SIZE.ONE}>
         <Service id='angellist' accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
         <Service id='github' accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
@@ -43,7 +40,7 @@ storiesOf('ContactInformation', module)
         <Service id='codepen' accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
       </ContactInformation>
   ))
-  .add('all services', wrapComponent(
+  .add('all services', () => (
     <ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={12} >
       <Service id='angellist' accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
       <Service id='github' accountIdentifier='jaebradley' type={SERVICE_TYPE.BITBUCKET} />
@@ -68,7 +65,7 @@ storiesOf('ContactInformation', module)
       <Email id='email' to='jae.b.bradley@gmail.com' />
     </ContactInformation>
   ))
-  .add('show tooltip', wrapComponent(
+  .add('show tooltip', () => (
     <ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={6} >
       <Service id='github' showIdentifier accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB} />
       <Service id='instagram' showIdentifier accountIdentifier='arsenal' type={SERVICE_TYPE.INSTAGRAM} />

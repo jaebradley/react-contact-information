@@ -1,5 +1,5 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import { storiesOf, addDecorator } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
@@ -7,12 +7,9 @@ import Service from './index';
 import { SERVICE_TYPE, FONT_AWESOME_SIZE } from '../constants';
 import README from './README.md';
 
-const wrapComponent = (component) => (
-  withInfo({ styles: bootstrap }, README)(() => component)
-);
-
 storiesOf('Service', module)
-  .add('basic usage', wrapComponent(
+  .addDecorator((story, context) => withInfo({ styles: bootstrap }, README)(story)(context))
+  .add('basic usage', () => (
     <Service
       id='github'
       username='jaebradley'
@@ -20,7 +17,7 @@ storiesOf('Service', module)
       type={SERVICE_TYPE.GITHUB}
     />
   ))
-  .add('different font awesome sizes', wrapComponent(
+  .add('different font awesome sizes', () => (
     <div>
       <h3>fa-xs</h3>
       <Service
