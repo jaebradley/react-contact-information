@@ -16,65 +16,65 @@ const wrapComponent = (component) => (
 storiesOf('ContactInformation', module)
   .add('basic usage, single row', wrapComponent(
     <ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={6}>
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.TWITTER} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
-      <Email to='jae.b.bradley@gmail.com' />
+      <Service id='angellist' accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
+      <Service id='github' accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
+      <Service id='facebook' accountIdentifier='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
+      <Service id='twitter' accountIdentifier='jaebradley' type={SERVICE_TYPE.TWITTER} />
+      <Service id='codepen' accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
+      <Email id='email' to='jae.b.bradley@gmail.com' />
     </ContactInformation>
   ))
   .add('multiple rows', wrapComponent (
     <ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={3}>
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.TWITTER} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
-      <Email to='jae.b.bradley@gmail.com' />
+      <Service id='angellist' accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
+      <Service id='github' accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
+      <Service id='facebook' accountIdentifier='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
+      <Service id='twitter' accountIdentifier='jaebradley' type={SERVICE_TYPE.TWITTER} />
+      <Service id='codepen' accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
+      <Email id='email' to='jae.b.bradley@gmail.com' />
     </ContactInformation>
   ))
   .add('font awesome size one', wrapComponent(
       <ContactInformation size={FONT_AWESOME_SIZE.ONE}>
-        <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
-        <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
-        <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.TWITTER} />
-        <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
-        <Email to='jae.b.bradley@gmail.com' />
+        <Service id='angellist' accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
+        <Service id='github' accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
+        <Service id='facebook' accountIdentifier='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
+        <Service id='twitter' accountIdentifier='jaebradley' type={SERVICE_TYPE.TWITTER} />
+        <Service id='codepen' accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
       </ContactInformation>
   ))
   .add('all services', wrapComponent(
     <ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={12} >
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.BITBUCKET} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
-      <Service accountIdentifier='166227184' type={SERVICE_TYPE.FOURSQUARE} />
-      <Service accountIdentifier='+JaeBradleyTest' type={SERVICE_TYPE.GOOGLE_PLUS} />
-      <Service accountIdentifier='gitlab' type={SERVICE_TYPE.GITLAB} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
-      <Service accountIdentifier='jae.b.bradley' type={SERVICE_TYPE.INSTAGRAM} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.LINKEDIN} />
-      <Service accountIdentifier='@jaebradley' type={SERVICE_TYPE.MEDIUM} />
-      <Service accountIdentifier='@jaebradley' type={SERVICE_TYPE.POCKET} />
-      <Service accountIdentifier='ohjoy' type={SERVICE_TYPE.PINTEREST} />
-      <Service accountIdentifier='spez' type={SERVICE_TYPE.REDDIT} />
-      <Service accountIdentifier='@djkhaled305' type={SERVICE_TYPE.SNAPCHAT} />
-      <Service accountIdentifier='124955558' type={SERVICE_TYPE.SPOTIFY} />
-      <Service accountIdentifier='5225575' type={SERVICE_TYPE.STACKOVERFLOW} />
-      <Service accountIdentifier='jaebradley' type={SERVICE_TYPE.TWITTER} />
-      <Service accountIdentifier='1234567890' type={SERVICE_TYPE.WHATSAPP} />
-      <Service accountIdentifier='UCYUQQgogVeQY8cMQamhHJcg' type={SERVICE_TYPE.YOUTUBE} />
-      <Email to='jae.b.bradley@gmail.com' />
+      <Service id='angellist' accountIdentifier='jaebradley' type={SERVICE_TYPE.ANGELLIST} />
+      <Service id='github' accountIdentifier='jaebradley' type={SERVICE_TYPE.BITBUCKET} />
+      <Service id='codepen' accountIdentifier='jaebradley' type={SERVICE_TYPE.CODEPEN} />
+      <Service id='foursquare' accountIdentifier='166227184' type={SERVICE_TYPE.FOURSQUARE} />
+      <Service id='google-plus' accountIdentifier='+JaeBradleyTest' type={SERVICE_TYPE.GOOGLE_PLUS} />
+      <Service id='gitlab' accountIdentifier='gitlab' type={SERVICE_TYPE.GITLAB} />
+      <Service id='github' accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB}/>
+      <Service id='facebook' accountIdentifier='jaebradley' type={SERVICE_TYPE.FACEBOOK} />
+      <Service id='instagram' accountIdentifier='jae.b.bradley' type={SERVICE_TYPE.INSTAGRAM} />
+      <Service id='linkedin' accountIdentifier='jaebradley' type={SERVICE_TYPE.LINKEDIN} />
+      <Service id='medium' accountIdentifier='@jaebradley' type={SERVICE_TYPE.MEDIUM} />
+      <Service id='pocket' accountIdentifier='@jaebradley' type={SERVICE_TYPE.POCKET} />
+      <Service id='pinterest' accountIdentifier='ohjoy' type={SERVICE_TYPE.PINTEREST} />
+      <Service id='reddit' accountIdentifier='spez' type={SERVICE_TYPE.REDDIT} />
+      <Service id='snapchat' accountIdentifier='@djkhaled305' type={SERVICE_TYPE.SNAPCHAT} />
+      <Service id='spotify' accountIdentifier='124955558' type={SERVICE_TYPE.SPOTIFY} />
+      <Service id='stackoverflow' accountIdentifier='5225575' type={SERVICE_TYPE.STACKOVERFLOW} />
+      <Service id='twitter' accountIdentifier='jaebradley' type={SERVICE_TYPE.TWITTER} />
+      <Service id='whatsapp' accountIdentifier='1234567890' type={SERVICE_TYPE.WHATSAPP} />
+      <Service id='youtube' accountIdentifier='UCYUQQgogVeQY8cMQamhHJcg' type={SERVICE_TYPE.YOUTUBE} />
+      <Email id='email' to='jae.b.bradley@gmail.com' />
     </ContactInformation>
   ))
   .add('show tooltip', wrapComponent(
     <ContactInformation size={FONT_AWESOME_SIZE.TWO} rowLength={6} >
-      <Service showIdentifier accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB} />
-      <Service showIdentifier accountIdentifier='arsenal' type={SERVICE_TYPE.INSTAGRAM} />
-      <Service showIdentifier accountIdentifier='ohjoy' type={SERVICE_TYPE.PINTEREST} />
-      <Service showIdentifier accountIdentifier='spez' type={SERVICE_TYPE.REDDIT} />
-      <Service showIdentifier accountIdentifier='@djkhaled305' type={SERVICE_TYPE.SNAPCHAT} />
-      <Email to='jae.b.bradley@gmail.com' />
+      <Service id='github' showIdentifier accountIdentifier='jaebradley' type={SERVICE_TYPE.GITHUB} />
+      <Service id='instagram' showIdentifier accountIdentifier='arsenal' type={SERVICE_TYPE.INSTAGRAM} />
+      <Service id='pinterest' showIdentifier accountIdentifier='ohjoy' type={SERVICE_TYPE.PINTEREST} />
+      <Service id='reddit' showIdentifier accountIdentifier='spez' type={SERVICE_TYPE.REDDIT} />
+      <Service id='snapchat' showIdentifier accountIdentifier='@djkhaled305' type={SERVICE_TYPE.SNAPCHAT} />
+      <Email id='email' to='jae.b.bradley@gmail.com' />
     </ContactInformation>
   ));

@@ -34,13 +34,10 @@ class ContactInformation extends Component {
   getChildren() {
     const { children, size } = this.props;
 
-    return React.Children.map((children), (child, index) => (
+    return React.Children.map((children), child => (
       React.cloneElement(child, {
+        ...child.props,
         size,
-        key: `${index}-contact-icon`,
-        id: `${child.props.type}-${child.props.username}-${index}`,
-        location: child.props.location,
-        type: child.props.type,
       })
     ));
   }

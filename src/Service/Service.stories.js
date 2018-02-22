@@ -13,35 +13,118 @@ const wrapComponent = (component) => (
 
 storiesOf('Service', module)
   .add('basic usage', wrapComponent(
-    <Service id='github' username='jaebradley' type={SERVICE_TYPE.GITHUB} />
+    <Service
+      id='github'
+      username='jaebradley'
+      accountIdentifier='jaebradley'
+      type={SERVICE_TYPE.GITHUB}
+    />
   ))
   .add('different font awesome sizes', wrapComponent(
     <div>
       <h3>fa-xs</h3>
-      <Service id='xs-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.EXTRA_SMALL} />
+      <Service
+        id='xs-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.EXTRA_SMALL}
+      />
       <h3>fa-s</h3>
-      <Service id='s-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.SMALL} />
+      <Service
+        id='s-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.SMALL}
+      />
       <h3>fa-lg</h3>
-      <Service id='lg-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.LARGE} />
+      <Service
+        id='lg-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.LARGE}
+      />
       <h3>fa-1</h3>
-      <Service id='1-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.ONE} />
+      <Service
+        id='1-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.ONE}
+      />
       <h3>fa-2</h3>
-      <Service id='2-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.TWO} />
+      <Service
+        id='2-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.TWO}
+      />
       <h3>fa-3</h3>
-      <Service id='3-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.THREE} />
+      <Service
+        id='3-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.THREE}
+      />
       <h3>fa-4</h3>
-      <Service id='4-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.FOUR} />
+      <Service
+        id='4-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.FOUR}
+      />
       <h3>fa-5</h3>
-      <Service id='5-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.FIVE} />
+      <Service
+        id='5-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.FIVE}
+      />
       <h3>fa-6</h3>
-      <Service id='6-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.SIX} />
+      <Service
+        id='6-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.SIX}
+      />
       <h3>fa-7</h3>
-      <Service id='7-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.SEVEN} />
+      <Service
+        id='7-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.SEVEN}
+      />
       <h3>fa-8</h3>
-      <Service id='8-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.EIGHT} />
+      <Service
+        id='8-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.EIGHT}
+      />
       <h3>fa-9</h3>
-      <Service id='9-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.NINE} />
+      <Service
+        id='9-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.NINE}
+      />
       <h3>fa-10</h3>
-      <Service id='10-size' username='jaebradley' type={SERVICE_TYPE.GITHUB} size={FONT_AWESOME_SIZE.TEN} />
+      <Service
+        id='10-size'
+        username='jaebradley'
+        accountIdentifier='jaebradley'
+        type={SERVICE_TYPE.GITHUB}
+        size={FONT_AWESOME_SIZE.TEN}
+      />
     </div>
   ));
