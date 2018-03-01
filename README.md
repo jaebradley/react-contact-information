@@ -1,5 +1,7 @@
 # react-contact-information
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/react-contact-information.svg)](https://greenkeeper.io/)
+
 ## Introduction
 
 Simple `React` component that combines all the ways to get connected across a variety of services.
