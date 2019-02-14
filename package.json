@@ -84,7 +84,7 @@
     "mailto-link": "^1.0.0",
     "popper.js": "^1.12.9",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
+    "react": "^16.8.2",
     "react-dom": "^16.2.0",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^5.0.0-alpha.4"
